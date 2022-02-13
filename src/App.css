@@ -1,0 +1,50 @@
+/* Other rules */
+/* Other rules */
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #fff;
+}
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+/* Header  */
+.header {
+	display: flex;
+	align-items: center;
+	height: 80px;
+	padding: 20px 0;
+}
+
+button {
+	padding: 5px 15px;
+	font-size: 15px;
+	font-weight: bold;
+	margin-left: 20px;
+}
+
+.container-header {
+	margin: 0 auto;
+	border-bottom: 2px solid #f0f0f0;
+}
+.logo {
+	width: 120px;
+}
+
+.offers {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: baseline;
+	gap: 20px;
+}
+
+.card {
+	border: 2px solid black;
+	width: 180px;
+	margin-bottom: 30px;
+	padding: 20px;
+}
