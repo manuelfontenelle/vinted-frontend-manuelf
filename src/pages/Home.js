@@ -11,7 +11,8 @@ const Home = () => {
 			const response = await axios.get(
 				// "https://vinted-api-2022.herokuapp.com/offers"
 				// "https://lereacteur-vinted-api.herokuapp.com/offers?sort=price-desc"
-				"https://localhost:3000/offers"
+				// Marche pas ?? "https://localhost:3000/offers"
+				"https://vinted-backend-manuelf.herokuapp.com/offers"
 			)
 			// console.log(response.data)
 			setData(response.data)
@@ -29,7 +30,7 @@ const Home = () => {
 					<Link key={offer._id} to={`/offer/${offer._id}`}>
 						<div className="card">
 							<h2 style={{ marginBottom: 15 }}>{offer.product_name}</h2>
-							{/* <h2>{offer.product_price}</h2> */}
+							<h2>{offer.product_price}</h2>
 							<img
 								style={{ height: 150 }}
 								src={offer.product_image.secure_url}
