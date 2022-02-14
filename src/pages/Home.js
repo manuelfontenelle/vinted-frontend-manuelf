@@ -11,7 +11,7 @@ const Home = () => {
 			const response = await axios.get(
 				"https://vinted-backend-manuelf.herokuapp.com/offers"
 				// "https://vinted-backend-manuelf.herokuapp.com/offers?limit=10"
-				// "https://localhost:3001/offers"
+				// "http://localhost:3001/offers"
 			)
 			// console.log(response.data)
 			setData(response.data)

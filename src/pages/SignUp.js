@@ -17,6 +17,7 @@ const SignUp = ({ setUser }) => {
 			event.preventDefault()
 			const response = await axios.post(
 				`https://vinted-backend-manuelf.herokuapp.com/user/signup`,
+				// "http://localhost:3001/user/signup",
 				{
 					username: username,
 					email: email,
