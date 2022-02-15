@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const Hero = ({ HeroImg }) => {
+const Hero = ({ HeroImg, decoHero }) => {
 	// const navigate = useNavigate()
 	return (
 		<div className="hero-container">
@@ -14,6 +14,7 @@ const Hero = ({ HeroImg }) => {
 					</div>
 				</div>
 			</div>
+			<img className="deco-hero-img" src={decoHero} alt="" />
 			<img className="hero-img" src={HeroImg} alt="" />
 		</div>
 	)

@@ -57,6 +57,7 @@ button {
 
 .offers-img-container img {
 	object-fit: cover;
+	margin-top: 5px;
 	width: 100%;
 	height: 350px;
 }
@@ -165,6 +166,7 @@ button {
 }
 /* NAV PAGE*/
 .navPage {
+	margin-top: 50px;
 	display: block;
 	display: flex;
 	justify-content: center;
@@ -173,6 +175,7 @@ button {
 /* Hero */
 
 .hero-container {
+	position: relative;
 	/* height: 550px;
 	border: 2px solid red; */
 }
@@ -180,6 +183,14 @@ button {
 	object-fit: cover;
 	height: 550px;
 	width: 100%;
+}
+
+.deco-hero-img {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	height: 80px;
+	pointer-events: none;
 }
 .block-left {
 	/* position: absolute; */
@@ -226,5 +237,5 @@ button {
 .offers-title {
 	font-size: 30px;
 	font-weight: bold;
-	margin: 20px 0;
+	margin: 35px 0;
 }

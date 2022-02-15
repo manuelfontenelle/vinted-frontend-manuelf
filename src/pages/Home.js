@@ -6,6 +6,7 @@ import axios from "axios"
 import Hero from "../components/Hero"
 //Img
 import HeroImg from "../assets/hero.jpg"
+import decoHero from "../assets/deco.svg"
 
 const Home = () => {
 	const [data, setData] = useState()
@@ -32,7 +33,7 @@ const Home = () => {
 		<div>En cours de chargement...</div>
 	) : (
 		<>
-			<Hero HeroImg={HeroImg} />
+			<Hero HeroImg={HeroImg} decoHero={decoHero} />
 			<div className=" container">
 				<h1 className="offers-title">Liste des Annonces :</h1>
 				<div className="offers">
