@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import axios from "axios"
 
 const Offer = () => {
@@ -15,7 +16,7 @@ const Offer = () => {
 				`https://vinted-backend-manuelf.herokuapp.com/offer/${id}`
 				// `http://localhost:3001/offer/${id}`
 			)
-			// console.log(response.data)
+			console.log(response.data)
 			setData(response.data)
 			setIsLoading(false)
 		}
@@ -26,21 +27,47 @@ const Offer = () => {
 		<div>En cours de chargement...</div>
 	) : (
 		<div className="container">
-			<h2>{data.product_name}</h2>
-			<span>{data.product_price}</span>
-			<img style={{ height: 150 }} src={data.product_image.secure_url} alt="" />
-			<div>
-				{data.product_details.map((item, index) => {
-					const keys = Object.keys(item) // ["MARQUE"]
-					return (
-						<div key={index}>
-							<span>
-								{keys[0]} : {item[keys[0]]}
-							</span>
+			<div className="offer-container">
+				<div className="offer-img">
+					<img
+						style={{ height: 450 }}
+						src={data.product_image.secure_url}
+						alt=""
+					/>
+				</div>
+				<div className="offer-content">
+					<div className="offer-content-first">
+						<div className="offer-price">{data.product_price} €</div>
+						<div className="offer-details">
+							{data.product_details.map((item, index) => {
+								const keys = Object.keys(item) // ["MARQUE"]
+								return (
+									<div key={index}>
+										<ul className="offer-details-flex">
+											<li>
+												<span className="offer-details-key">{keys[0]}</span>
+												<span className="offer-details-value">
+													{item[keys[0]]}
+												</span>
+											</li>
+										</ul>
+									</div>
+								)
+							})}
 						</div>
-					)
-				})}
+					</div>
+					<div className="offer-content-second">
+						<div className="offer-name">{data.product_name}</div>
+						<div className="offer-desc">{data.product_description}</div>
+						<div className="offer-owner">{data.owner.account.username}</div>
+					</div>
+					<Link className="btn-offer" to="/publish">
+						<button>Acheter</button>
+					</Link>
+				</div>
 			</div>
+
+			{/* <h2>{data.product_name}</h2> */}
 		</div>
 	)
 }

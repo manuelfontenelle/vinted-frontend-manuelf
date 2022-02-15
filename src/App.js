@@ -8,6 +8,7 @@ import Offer from "./pages/Offer"
 import SignUp from "./pages/SignUp"
 import Login from "./pages/Login"
 import NotFound from "./pages/NotFound"
+import Publish from "./pages/Publish"
 // Logo
 import Logo from "./assets/logo.svg"
 //Header
@@ -34,6 +35,7 @@ function App() {
 				<Route path="/offer/:id" element={<Offer />} />
 				<Route path="/signup" element={<SignUp setUser={setUser} />} />
 				<Route path="/login" element={<Login setUser={setUser} />} />
+				<Route path="/publish" element={<Publish token={token} />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</Router>
