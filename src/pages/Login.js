@@ -1,4 +1,6 @@
 import axios from "axios"
+
+import { Link } from "react-router-dom"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -37,8 +39,9 @@ const Login = ({ setUser }) => {
 	}
 
 	return (
-		<div className="container">
-			<form onSubmit={handleSubmit}>
+		<div className="signup-container container">
+			<h2>Se connecter</h2>
+			<form onSubmit={handleSubmit} class="signup-form">
 				<input
 					type="email"
 					placeholder="email"
@@ -51,10 +54,13 @@ const Login = ({ setUser }) => {
 					onChange={(event) => setPassword(event.target.value)}
 				/>
 				<br />
-				<input type="submit" value="Se connecter" />
+				<button type="submit" value="Se connecter">
+					Se connecter
+				</button>
 				<br />
 				<span>{errorMessage}</span>
 			</form>
+			<Link to={`/signup`}>Pas encore de compte ? Inscris-toi !</Link>
 		</div>
 	)
 }

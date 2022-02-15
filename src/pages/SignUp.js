@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
@@ -41,8 +42,9 @@ const SignUp = ({ setUser }) => {
 	}
 
 	return (
-		<div className="container">
-			<form onSubmit={handleSubmit}>
+		<div className="signup-container container">
+			<h2>S'inscrire</h2>
+			<form onSubmit={handleSubmit} class="signup-form">
 				<input
 					value={username}
 					type="text"
@@ -64,14 +66,27 @@ const SignUp = ({ setUser }) => {
 					onChange={(event) => setPassword(event.target.value)}
 				/>
 				<br />
-				<input
-					type="checkbox"
-					onChange={(event) => setNewsletter(event.target.checked)}
-				/>
+				<div className="checkbox-container">
+					<div>
+						<input
+							type="checkbox"
+							onChange={(event) => setNewsletter(event.target.checked)}
+						/>
+						<span>S'inscrire à notre newsletter</span>
+					</div>
+					<p>
+						En m'inscrivant je confirme avoir lu et accepté les Termes &amp;
+						Conditions et Politique de Confidentialité de Vinted. Je confirme
+						avoir au moins 18 ans.
+					</p>
+				</div>
 				<br />
-				<input type="submit" value="S'inscrire" />
+				<button type="submit" value="Se connecter">
+					S'inscrire
+				</button>
 				<span>{errorMessage}</span>
 			</form>
+			<Link to={`/login`}>Tu as déjà un compte ? Connecte-toi !</Link>
 		</div>
 	)
 }

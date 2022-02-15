@@ -13,7 +13,7 @@ const Home = () => {
 	const [isLoading, setIsLoading] = useState(true)
 	const [page, setPage] = useState(1)
 
-	const limit = 8
+	const limit = 10
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -74,8 +74,12 @@ const Home = () => {
 					})}
 				</div>
 				<div className="navPage">
-					{/* {console.log(data.offers.length)} */}
-					{page >= 2 && data.offers.length === limit ? (
+					{/* {console.log(data.offers.length * page)} */}
+
+					{data.offers.length === 0 ||
+					data.offers.length * page === data.count ? (
+						<div></div>
+					) : page >= 2 && data.offers.length === limit ? (
 						<div>
 							<button onClick={() => setPage(page - 1)}>Page précédente</button>
 							<button onClick={() => setPage(page + 1)}>Page suivante</button>

@@ -20,8 +20,30 @@ body {
 	display: flex;
 	align-items: center;
 	height: 80px;
-
 	padding: 20px 0;
+}
+
+.header-button {
+	cursor: pointer;
+	height: 30px;
+	width: 115px;
+	border: 1px solid #2cb1ba;
+	border-radius: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	outline: none;
+}
+.button-login-signup {
+	background-color: #fff;
+	color: #2cb1ba;
+}
+.button-sold {
+	background-color: #2cb1ba;
+	color: #fff;
+	width: 150px;
+}
+.button-deco {
+	width: 150px;
 }
 
 button {
@@ -238,4 +260,124 @@ button {
 	font-size: 30px;
 	font-weight: bold;
 	margin: 35px 0;
+}
+
+/* Signup */
+.signup-container,
+.signup-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.signup-container {
+	justify-content: center;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.signup-container a {
+	color: #2cb1ba;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.signup-container h2 {
+	font-weight: bold;
+	font-size: 25px;
+	margin-bottom: 25px;
+}
+
+.signup-form {
+	width: 275px;
+	margin: auto;
+}
+
+.publish-form {
+	width: 100%;
+}
+
+.signup-form input {
+	border: none;
+	border-bottom: 1px solid #fcced3;
+	height: 35px;
+	margin-bottom: 10px;
+	background-color: #f5f5f5;
+}
+
+.signup-form button {
+	background-color: #2cb1ba;
+	height: 45px;
+	width: 100%;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 16px;
+	margin-top: 20px;
+	margin-left: 0;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+
+.checkbox-container {
+	margin-top: 20px;
+	padding: 10px;
+}
+
+.checkbox-container > div {
+	display: flex;
+	align-items: center;
+}
+.checkbox-container span {
+	color: #666;
+	margin-top: -6px;
+}
+
+.checkbox-container > p {
+	text-align: left;
+	color: #999;
+	font-size: 12px;
+}
+
+.signup-form input[type="checkbox"] {
+	transform: scale(2);
+	margin-right: 20px;
+}
+
+.text-input-section {
+	background-color: #fff;
+	margin: 20px 0;
+	box-shadow: 0 0 2px grey;
+}
+.text-input-section > .text-input:not(:last-child) {
+	/* height: 40px; */
+	border-bottom: 1px solid #ebedee;
+	vertical-align: center;
+}
+.text-input {
+	display: flex;
+	justify-content: space-between;
+	padding: 24px;
+}
+.text-input > h4 {
+	font-weight: 400;
+	margin: 0;
+	vertical-align: baseline;
+}
+
+.text-input > input {
+	width: 50%;
+	border: none;
+	border-bottom-color: currentcolor;
+	border-bottom-style: none;
+	border-bottom-width: medium;
+	border-bottom: 1px solid #ebedee;
+	background-color: #fff;
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+}
+button,
+input {
+	outline: none;
 }

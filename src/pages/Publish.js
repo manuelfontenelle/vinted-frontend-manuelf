@@ -65,7 +65,11 @@ const Publish = ({ token }) => {
 	}
 
 	return token ? (
-		<form style={{ padding: 30 }} onSubmit={handleSubmit}>
+		<form
+			style={{ padding: 30 }}
+			onSubmit={handleSubmit}
+			class="signup-form publish-form"
+		>
 			<div>
 				<div style={{ height: 45, width: 180, border: "1px solid blue" }}>
 					<label htmlFor="file">
@@ -100,35 +104,53 @@ const Publish = ({ token }) => {
 				onChange={(event) => setDescription(event.target.value)}
 			/>
 			<br />
-			<input
-				type="text"
-				placeholder="brand"
-				onChange={(event) => setBrand(event.target.value)}
-			/>
-			<br />
-			<input
-				type="text"
-				placeholder="size"
-				onChange={(event) => setSize(event.target.value)}
-			/>
-			<br />
-			<input
-				type="text"
-				placeholder="color"
-				onChange={(event) => setColor(event.target.value)}
-			/>
-			<br />
-			<input
-				type="text"
-				placeholder="condition"
-				onChange={(event) => setCondition(event.target.value)}
-			/>
-			<br />
-			<input
-				type="text"
-				placeholder="city"
-				onChange={(event) => setCity(event.target.value)}
-			/>
+			<div className="text-input-section">
+				<div className="text-input">
+					<h4>Marque</h4>
+					<input
+						type="text"
+						placeholder="ex : Nike"
+						onChange={(event) => setBrand(event.target.value)}
+					/>
+				</div>
+
+				<br />
+				<div className="text-input">
+					<h4>Taille</h4>
+					<input
+						type="text"
+						placeholder="size"
+						onChange={(event) => setSize(event.target.value)}
+					/>
+				</div>
+				<br />
+				<div className="text-input">
+					<h4>Couleur</h4>
+					<input
+						type="text"
+						placeholder="color"
+						onChange={(event) => setColor(event.target.value)}
+					/>
+				</div>
+				<br />
+				<div className="text-input">
+					<h4>Etat</h4>
+					<input
+						type="text"
+						placeholder="condition"
+						onChange={(event) => setCondition(event.target.value)}
+					/>
+				</div>
+				<br />
+				<div className="text-input">
+					<h4>Lieu</h4>
+					<input
+						type="text"
+						placeholder="city"
+						onChange={(event) => setCity(event.target.value)}
+					/>
+				</div>
+			</div>
 			<br />
 			<input
 				type="number"

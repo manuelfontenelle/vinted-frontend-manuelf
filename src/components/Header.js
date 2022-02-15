@@ -12,6 +12,7 @@ const Header = ({ logo, token, setUser }) => {
 						</Link>
 
 						<button
+							className=" header-button button-login-signup button-deco"
 							onClick={() => {
 								setUser(null)
 								navigate("/")
@@ -26,15 +27,21 @@ const Header = ({ logo, token, setUser }) => {
 							<img className="logo" src={logo} alt="" />
 						</Link>
 						<Link to={`/signup`}>
-							<button>S'incrire</button>
+							<button className=" header-button button-login-signup">
+								S'incrire
+							</button>
 						</Link>
 						<Link to={`/login`}>
-							<button>Se connecter</button>
+							<button className="header-button button-login-signup">
+								Se connecter
+							</button>
 						</Link>
 					</>
 				)}
 				<Link to="/publish">
-					<button>Vends tes articles</button>
+					<button className="header-button  button-sold">
+						Vends tes articles
+					</button>
 				</Link>
 			</div>
 		</div>
