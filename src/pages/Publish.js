@@ -66,43 +66,69 @@ const Publish = ({ token }) => {
 
 	return token ? (
 		<form
-			style={{ padding: 30 }}
+			style={{ padding: 0 }}
 			onSubmit={handleSubmit}
-			class="signup-form publish-form"
+			class="signup-form publish-form container"
 		>
-			<div>
-				<div style={{ height: 45, width: 180, border: "1px solid blue" }}>
-					<label htmlFor="file">
-						<span>+</span> <span>Ajouter une photo</span>
-					</label>
-				</div>
-				<input
-					style={{ display: "none" }}
-					id="file"
-					type="file"
-					onChange={(event) => {
-						setPicture(event.target.files[0])
-						setPreview(URL.createObjectURL(event.target.files[0]))
-					}}
-				/>
+			<div className="file-select">
+				{picture ? (
+					<div className="dashed-preview-image">
+						<img src={preview} alt="" />
+						<div
+							className="remove-img-button"
+							onClick={() => {
+								setPicture("")
+							}}
+						>
+							X
+						</div>
+					</div>
+				) : (
+					<div>
+						<div className="dashed-preview-without">
+							<div className="input-upload">
+								<label htmlFor="file" className="input-label">
+									<span class="input-sign">+</span>{" "}
+									<span>Ajouter une photo</span>
+								</label>
+							</div>
+							<input
+								style={{ display: "none" }}
+								id="file"
+								type="file"
+								onChange={(event) => {
+									setPicture(event.target.files[0])
+									setPreview(URL.createObjectURL(event.target.files[0]))
+								}}
+							/>
+						</div>
+					</div>
+				)}
 			</div>
-			{preview && <img src={preview} alt="" />}
+			<br />
 
 			<br />
-			<input
-				type="text"
-				placeholder="title"
-				onChange={(event) => setTitle(event.target.value)}
-			/>
-			<br />
-			<textarea
-				name=""
-				id=""
-				cols="30"
-				rows="10"
-				placeholder="description"
-				onChange={(event) => setDescription(event.target.value)}
-			/>
+			<div className="text-input-section">
+				<div className="text-input">
+					<h4>Titre</h4>
+					<input
+						type="text"
+						placeholder="title"
+						onChange={(event) => setTitle(event.target.value)}
+					/>
+				</div>
+				<div className="text-input">
+					<h4>Décris ton article</h4>
+					<textarea
+						name=""
+						id=""
+						cols="30"
+						rows="10"
+						placeholder="ex: porté quelquefois, taille correctement"
+						onChange={(event) => setDescription(event.target.value)}
+					/>
+				</div>
+			</div>
 			<br />
 			<div className="text-input-section">
 				<div className="text-input">
@@ -152,13 +178,20 @@ const Publish = ({ token }) => {
 				</div>
 			</div>
 			<br />
-			<input
-				type="number"
-				placeholder="price"
-				onChange={(event) => setPrice(event.target.value)}
-			/>
+			<div className="text-input-section">
+				<div className="text-input">
+					<h4>Titre</h4>
+					<input
+						type="number"
+						placeholder="price"
+						onChange={(event) => setPrice(event.target.value)}
+					/>
+				</div>
+			</div>
 			<br />
-			<input type="submit" />
+			<div className="form-button-div">
+				<button type="submit">Ajouter</button>
+			</div>
 			{errorMessage}
 		</form>
 	) : (
