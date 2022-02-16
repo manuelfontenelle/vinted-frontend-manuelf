@@ -381,3 +381,77 @@ button,
 input {
 	outline: none;
 }
+
+/* Payment */
+.payment-container {
+	width: 600px;
+	margin: 50px auto 0 auto;
+	padding: 36px 20px;
+	background-color: white;
+}
+
+.payment-resume > .title {
+	display: block;
+	font-size: 14px;
+	line-height: 18px;
+	color: #999;
+	padding: 24px 24px 8px;
+}
+
+.payment-resume .content,
+.payment-final .content {
+	padding: 24px;
+	text-align: justify;
+}
+
+.payment-final .bold {
+	font-weight: 700;
+}
+.payment-resume ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.payment-resume li {
+	font-size: 16px;
+	line-height: 22px;
+	color: #666;
+	padding: 4px 0;
+	display: grid;
+	grid: auto/1fr auto;
+	align-items: center;
+}
+.payment-resume .content {
+	text-align: justify;
+}
+
+.payment-resume .divider,
+.payment-final .divider {
+	display: block;
+	width: 100%;
+	height: 1px;
+	background: rgba(17, 17, 17, 0.1);
+	margin: 24px 0;
+}
+
+.payment-final button {
+	margin-top: 8px;
+	cursor: pointer;
+	display: block;
+	width: 100%;
+	font-size: 16px;
+	line-height: 22px;
+	height: 44px;
+	padding: 0 14px;
+	color: #fff;
+	border: 1px solid;
+	border-top-color: currentcolor;
+	border-right-color: currentcolor;
+	border-bottom-color: currentcolor;
+	border-left-color: currentcolor;
+	border-radius: 4px;
+	background: #00c06d;
+	border-color: #00c06d;
+	margin-left: 0;
+	margin-top: 25px;
+}

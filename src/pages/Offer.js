@@ -1,6 +1,5 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
 import axios from "axios"
 
 const Offer = () => {
@@ -13,10 +12,10 @@ const Offer = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await axios.get(
-				`https://vinted-backend-manuelf.herokuapp.com/offer/${id}`
-				// `http://localhost:3001/offer/${id}`
+				// `https://vinted-backend-manuelf.herokuapp.com/offer/${id}`
+				`http://localhost:3001/offer/${id}`
 			)
-			console.log(response.data)
+			// console.log(response.data)
 			setData(response.data)
 			setIsLoading(false)
 		}
@@ -61,7 +60,11 @@ const Offer = () => {
 						<div className="offer-desc">{data.product_description}</div>
 						<div className="offer-owner">{data.owner.account.username}</div>
 					</div>
-					<Link className="btn-offer" to="/publish">
+					<Link
+						className="btn-offer"
+						to="/payment"
+						state={{ title: data.product_name, price: data.product_price }}
+					>
 						<button>Acheter</button>
 					</Link>
 				</div>

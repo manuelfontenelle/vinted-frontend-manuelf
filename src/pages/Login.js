@@ -15,8 +15,8 @@ const Login = ({ setUser }) => {
 		try {
 			event.preventDefault()
 			const response = await axios.post(
-				"https://vinted-backend-manuelf.herokuapp.com/user/login",
-				// "http://localhost:3001/user/login",
+				// "https://vinted-backend-manuelf.herokuapp.com/user/login",
+				"http://localhost:3001/user/login",
 				{
 					email: email,
 					password: password,
@@ -25,7 +25,7 @@ const Login = ({ setUser }) => {
 
 			console.log(response.data)
 			if (response.data.token) {
-				setUser(response.data.token)
+				setUser(response.data.token, response.data._id)
 				// redirection
 				navigate("/")
 			}

@@ -17,8 +17,8 @@ const SignUp = ({ setUser }) => {
 		try {
 			event.preventDefault()
 			const response = await axios.post(
-				`https://vinted-backend-manuelf.herokuapp.com/user/signup`,
-				// "http://localhost:3001/user/signup",
+				// `https://vinted-backend-manuelf.herokuapp.com/user/signup`,
+				"http://localhost:3001/user/signup",
 				{
 					username: username,
 					email: email,
@@ -28,7 +28,7 @@ const SignUp = ({ setUser }) => {
 			)
 			if (response.data.token) {
 				// Sauvegarder le token dans un cookie
-				setUser(response.data.token)
+				setUser(response.data.token, response.data._id)
 				// Rediriger le user vers "/"
 				navigate("/")
 			}

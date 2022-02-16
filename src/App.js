@@ -9,6 +9,7 @@ import SignUp from "./pages/SignUp"
 import Login from "./pages/Login"
 import NotFound from "./pages/NotFound"
 import Publish from "./pages/Publish"
+import Payment from "./pages/Payment"
 // Logo
 import Logo from "./assets/logo.svg"
 //Header
@@ -17,10 +18,11 @@ import Header from "./components/Header"
 function App() {
 	const [token, setToken] = useState(Cookies.get("userToken") || null)
 
-	const setUser = (token) => {
+	const setUser = (token, id) => {
 		if (token) {
 			// Gestion de cookie
 			Cookies.set("userToken", token, { expires: 10 })
+			Cookies.set("userId", id, { expires: 10 })
 		} else {
 			Cookies.remove("userToken")
 		}
@@ -36,6 +38,7 @@ function App() {
 				<Route path="/signup" element={<SignUp setUser={setUser} />} />
 				<Route path="/login" element={<Login setUser={setUser} />} />
 				<Route path="/publish" element={<Publish token={token} />} />
+				<Route path="/payment" element={<Payment token={token} />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</Router>
