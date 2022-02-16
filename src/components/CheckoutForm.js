@@ -25,11 +25,19 @@ const CheckoutForm = ({ title, price }) => {
 			// console.log("stripeResponse ===> ", stripeResponse)
 			const stripeToken = stripeResponse.token.id
 			// Envoyer ce stripeToken à l'API Vinted
-			const response = await axios.post("http://localhost:3001/payment", {
-				stripeToken: stripeToken,
-				title: title,
-				amount: price,
-			})
+			const response = await axios.post(
+				"https://vinted-backend-manuelf.herokuapp.com/payment",
+				{
+					stripeToken: stripeToken,
+					title: title,
+					amount: price,
+				}
+			)
+			// const response = await axios.post("http://localhost:3001/payment", {
+			// 	stripeToken: stripeToken,
+			// 	title: title,
+			// 	amount: price,
+			// })
 			if (response.data.status === "succeeded") {
 				setCompleted(true)
 			}
