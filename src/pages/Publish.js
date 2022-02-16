@@ -180,7 +180,7 @@ const Publish = ({ token }) => {
 			<br />
 			<div className="text-input-section">
 				<div className="text-input">
-					<h4>Titre</h4>
+					<h4>Prix</h4>
 					<input
 						type="number"
 						placeholder="price"
