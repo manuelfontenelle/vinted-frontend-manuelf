@@ -65,7 +65,7 @@ button {
 .offers {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: normal;
 	align-items: baseline;
 	gap: 20px;
 
