@@ -544,3 +544,33 @@ input {
 	font-weight: 700;
 	cursor: pointer;
 }
+
+.navPage button {
+	margin-top: 8px;
+	cursor: pointer;
+	/* display: block; */
+	width: 250px;
+	font-size: 16px;
+	line-height: 22px;
+	height: 44px;
+	padding: 0 14px;
+	color: #fff;
+	border: 1px solid;
+	border-top-color: currentcolor;
+	border-right-color: currentcolor;
+	border-bottom-color: currentcolor;
+	border-left-color: currentcolor;
+	border-radius: 4px;
+	background-color: #09b1ba;
+	border-color: #09b1ba;
+	margin-left: 0;
+	margin-top: 25px;
+}
+
+.navPage button:first-child {
+	margin-right: 15px;
+}
+
+.navPage button:hover {
+	background-color: #018a91;
+}
