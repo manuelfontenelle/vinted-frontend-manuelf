@@ -7,6 +7,8 @@ import Hero from "../components/Hero"
 //Img
 import HeroImg from "../assets/hero.jpg"
 import decoHero from "../assets/deco.svg"
+//loader
+import { Puff } from "react-loader-spinner"
 
 const Home = () => {
 	const [data, setData] = useState()
@@ -18,8 +20,8 @@ const Home = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await axios.get(
-				// "https://vinted-backend-manuelf.herokuapp.com/offers"
 				`https://vinted-backend-manuelf.herokuapp.com/offers?limit=${limit}&page=${page}`
+				// "https://vinted-backend-manuelf.herokuapp.com/offers"
 				// `http://localhost:3001/offers?limit=${limit}&page=${page}`
 			)
 			console.log(response.data)
@@ -30,7 +32,18 @@ const Home = () => {
 	}, [page])
 
 	return isLoading ? (
-		<div>En cours de chargement...</div>
+		<div>
+			<Puff
+				height="80"
+				width="80"
+				radisu={1}
+				color="#2cb1ba"
+				ariaLabel="puff-loading"
+				wrapperStyle={{}}
+				wrapperClass="puff-loader"
+				visible={true}
+			/>
+		</div>
 	) : (
 		<>
 			<Hero HeroImg={HeroImg} decoHero={decoHero} />
@@ -41,9 +54,24 @@ const Home = () => {
 						return (
 							<Link key={offer._id} to={`/offer/${offer._id}`}>
 								<div className="card-container">
-									<span className="offers-owner">
-										{offer.owner.account.username}
-									</span>
+									<div className="offers-owner">
+										{offer.owner.account.avatar && (
+											<span className="offers-owner-avatar">
+												<img
+													style={{
+														height: 25,
+														borderRadius: 50,
+													}}
+													src={offer.owner.account.avatar.secure_url}
+													alt=""
+												/>
+											</span>
+										)}
+
+										<span className="offers-owner-username">
+											{offer.owner.account.username}
+										</span>
+									</div>
 
 									<span className="offers-img-container">
 										<img

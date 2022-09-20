@@ -9,7 +9,7 @@ body {
 	margin-bottom: 40px;
 }
 .container {
-	max-width: 1200px;
+	max-width: 1280px;
 	margin: 0 auto;
 }
 /* Header  */
@@ -32,6 +32,12 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	outline: none;
+}
+.puff-loader {
+	margin: 0 auto;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
 }
 .button-login-signup {
 	background-color: #fff;
@@ -115,7 +121,7 @@ button {
 }
 
 .offer-content {
-	padding: 20px;
+	padding: 35px;
 	width: 350px;
 	background-color: white;
 	position: relative;
@@ -123,7 +129,7 @@ button {
 	flex-direction: column;
 }
 .offer-content-first {
-	border-bottom: 1px solid grey;
+	border-bottom: 1px solid #dedede;
 	padding-bottom: 55px;
 }
 .offer-content-second {
@@ -135,14 +141,40 @@ button {
 }
 .offer-desc {
 	margin-bottom: 15px;
+	color: #999;
 }
 
-.offer-owner {
-	font-size: 12px;
+.offers-owner {
+	display: flex;
+	align-items: center;
+}
+.offers-owner-username {
+	font-size: 14px;
+	color: #999;
+	/* margin-left: 10px; */
+}
+.offers-owner-avatar img {
+	/* border-radius: 50%;
+	height: 25px; */
+	margin-right: 10px;
+	object-fit: cover;
+	width: 25px;
+}
+
+.offer-username {
+	align-items: center;
+	display: flex;
+}
+.offer-username img {
+	border-radius: 50%;
+	height: 50px;
+	margin-right: 10px;
+	object-fit: cover;
+	width: 50px;
 }
 .offer-price {
 	font-size: 20px;
-	font-weight: bold;
+	/* font-weight: bold; */
 	margin-bottom: 5px;
 }
 .offer-details {
@@ -150,6 +182,8 @@ button {
 }
 .offer-details-flex li {
 	display: flex;
+	margin-bottom: 5px;
+	font-size: 14px;
 	/* justify-content: space-evenly; */
 }
 .offer-details-key {
@@ -159,7 +193,8 @@ button {
 .offer-details-value {
 	font-weight: bold;
 	flex: 1 1;
-	color: #353535;
+	text-transform: uppercase;
+	color: #858585;
 }
 
 .btn-offer {
@@ -213,30 +248,33 @@ button {
 }
 .block-left {
 	/* position: absolute; */
-	width: 350px;
+	width: 360px;
+	border-radius: 3px;
+	box-shadow: 0 0 2px hsla(0, 0%, 7%, 0.24);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: start;
 	height: 350px;
 	background-color: white;
 	padding: 30px;
 }
 .block-left h1 {
-	font-size: 40px;
+	font-size: 33px;
+	line-height: 1.2em;
 }
 .block-left-link {
 	margin-top: 20px;
-	width: 100%;
+	width: 67%;
 }
 .block-left-link button {
 	cursor: pointer;
-	padding: 12px;
+	/* padding: 12px; */
 	color: white;
 	font-size: 15px;
 	font-weight: bold;
 	margin: 0;
-	width: 100%;
+	padding: 15px 23px;
 	background-color: #09b1ba;
 	border: 0;
 	border-radius: 5px;

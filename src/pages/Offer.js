@@ -1,6 +1,8 @@
 import { useParams, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
+//loader
+import { Puff } from "react-loader-spinner"
 
 const Offer = () => {
 	const { id } = useParams()
@@ -23,13 +25,24 @@ const Offer = () => {
 	}, [id])
 
 	return isLoading ? (
-		<div>En cours de chargement...</div>
+		<div>
+			<Puff
+				height="80"
+				width="80"
+				radisu={1}
+				color="#2cb1ba"
+				ariaLabel="puff-loading"
+				wrapperStyle={{}}
+				wrapperClass="puff-loader"
+				visible={true}
+			/>
+		</div>
 	) : (
 		<div className="container">
 			<div className="offer-container">
 				<div className="offer-img">
 					<img
-						style={{ height: 450 }}
+						style={{ height: 600 }}
 						src={data.product_image.secure_url}
 						alt=""
 					/>
@@ -58,7 +71,16 @@ const Offer = () => {
 					<div className="offer-content-second">
 						<div className="offer-name">{data.product_name}</div>
 						<div className="offer-desc">{data.product_description}</div>
-						<div className="offer-owner">{data.owner.account.username}</div>
+						<div className="offer-username">
+							{data.owner.account.avatar && (
+								<img
+									style={{}}
+									src={data.owner.account.avatar.secure_url}
+									alt=""
+								/>
+							)}
+							<div className="offer-owner">{data.owner.account.username}</div>
+						</div>
 					</div>
 					<Link
 						className="btn-offer"

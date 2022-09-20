@@ -4,10 +4,13 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
 const SignUp = ({ setUser }) => {
+	const [avatar, setavatar] = useState()
 	const [username, setUsername] = useState("")
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 	const [newsletter, setNewsletter] = useState(false)
+
+	const [preview, setPreview] = useState("")
 
 	const [errorMessage, setErrorMessage] = useState("")
 
@@ -16,21 +19,36 @@ const SignUp = ({ setUser }) => {
 	const handleSubmit = async (event) => {
 		try {
 			event.preventDefault()
-			const response = await axios.post(
-				`https://vinted-backend-manuelf.herokuapp.com/user/signup`,
-				// "http://localhost:3001/user/signup",
-				{
-					username: username,
-					email: email,
-					password: password,
-					newsletter: newsletter,
+
+			if (email && username && password) {
+				const formData = new FormData()
+				formData.append("avatar", avatar)
+				formData.append("username", username)
+				formData.append("email", email)
+				formData.append("password", password)
+				formData.append("newsletter", newsletter)
+				const response = await axios.post(
+					`https://vinted-backend-manuelf.herokuapp.com/user/signup`,
+					// `https://lereacteur-vinted-api.herokuapp.com/user/signup`
+					// "http://localhost:3001/user/signup",
+					formData
+					// {
+					// username: username,
+					// email: email,
+					// password: password,
+					// newsletter: newsletter,
+					// }
+				)
+				if (response.data.token) {
+					// Sauvegarder le token dans un cookie
+					setUser(response.data.token, response.data._id)
+					// Rediriger le user vers "/"
+					navigate("/")
 				}
-			)
-			if (response.data.token) {
-				// Sauvegarder le token dans un cookie
-				setUser(response.data.token, response.data._id)
-				// Rediriger le user vers "/"
-				navigate("/")
+			} else {
+				setErrorMessage(
+					"Les champs Email, Username et Password sont obligatoires !"
+				)
 			}
 		} catch (error) {
 			console.log("Signup Error ===> ", error.message)
@@ -65,6 +83,44 @@ const SignUp = ({ setUser }) => {
 					placeholder="password"
 					onChange={(event) => setPassword(event.target.value)}
 				/>
+				<br />
+				{/* UPLOAD IMAGE */}
+				<div className="file-select">
+					{avatar ? (
+						<div className="dashed-preview-image">
+							<img src={preview} alt="" />
+							<div
+								className="remove-img-button"
+								onClick={() => {
+									setavatar("")
+								}}
+							>
+								X
+							</div>
+						</div>
+					) : (
+						<div>
+							<div className="dashed-preview-without">
+								<div className="input-upload">
+									<label htmlFor="file" className="input-label">
+										<span class="input-sign">+</span>{" "}
+										<span>Ajouter une photo</span>
+									</label>
+								</div>
+								<input
+									style={{ display: "none" }}
+									id="file"
+									type="file"
+									onChange={(event) => {
+										setavatar(event.target.files[0])
+										setPreview(URL.createObjectURL(event.target.files[0]))
+									}}
+								/>
+							</div>
+						</div>
+					)}
+				</div>
+				{/* FIN UPLOAD IMAGE */}
 				<br />
 				<div className="checkbox-container">
 					<div>
