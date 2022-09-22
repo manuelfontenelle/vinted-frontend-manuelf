@@ -29,9 +29,9 @@ const SignUp = ({ setUser }) => {
 				formData.append("newsletter", newsletter)
 
 				const response = await axios.post(
-					// `https://vinted-backend-manuelf.herokuapp.com/user/signup`,
+					`https://vinted-backend-manuelf.herokuapp.com/user/signup`,
 					// `https://lereacteur-vinted-api.herokuapp.com/user/signup`
-					"http://localhost:3001/user/signup",
+					// "http://localhost:3001/user/signup",
 					formData
 					// {
 					// username: username,
