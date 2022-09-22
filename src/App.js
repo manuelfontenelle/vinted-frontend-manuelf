@@ -21,7 +21,7 @@ function App() {
 	const [sortedPrice, setSortedPrice] = useState("")
 	console.log(sortedPrice)
 
-	const [range, setRange] = useState({ values: [0, 100] })
+	const [range, setRange] = useState({ values: [0, 350] })
 	console.log(range)
 	// const [priceMin, setPriceMin] = useState(range.values[0])
 
