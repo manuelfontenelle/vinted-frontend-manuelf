@@ -27,6 +27,7 @@ const SignUp = ({ setUser }) => {
 				formData.append("email", email)
 				formData.append("password", password)
 				formData.append("newsletter", newsletter)
+
 				const response = await axios.post(
 					`https://vinted-backend-manuelf.herokuapp.com/user/signup`,
 					// `https://lereacteur-vinted-api.herokuapp.com/user/signup`
@@ -39,6 +40,7 @@ const SignUp = ({ setUser }) => {
 					// newsletter: newsletter,
 					// }
 				)
+				console.log("response.data", response.data)
 				if (response.data.token) {
 					// Sauvegarder le token dans un cookie
 					setUser(response.data.token, response.data._id)
@@ -53,7 +55,7 @@ const SignUp = ({ setUser }) => {
 		} catch (error) {
 			console.log("Signup Error ===> ", error.message)
 			console.log("Catch error ===> ", error.response)
-			if (error.response.status === 409) {
+			if (error.response.status === 409 || 400) {
 				setErrorMessage("Cet email a déjà un compte")
 			}
 		}

@@ -16,6 +16,19 @@ import Logo from "./assets/logo.svg"
 import Header from "./components/Header"
 
 function App() {
+	const [page, setPage] = useState(1)
+	const [title, setSearch] = useState("")
+	const [sortedPrice, setSortedPrice] = useState("")
+	console.log(sortedPrice)
+
+	const handleChangeSortPrice = (checkedValue) => {
+		if (checkedValue === true) {
+			setSortedPrice("price-asc")
+		} else {
+			setSortedPrice("")
+		}
+	}
+
 	const [token, setToken] = useState(Cookies.get("userToken") || null)
 
 	const setUser = (token, id) => {
@@ -31,9 +44,27 @@ function App() {
 	}
 	return (
 		<Router>
-			<Header setUser={setUser} token={token} logo={Logo} />
+			<Header
+				setUser={setUser}
+				token={token}
+				logo={Logo}
+				title={title}
+				setSearch={setSearch}
+				setPage={setPage}
+				handleChangeSortPrice={handleChangeSortPrice}
+			/>
 			<Routes>
-				<Route path="/" element={<Home />} />
+				<Route
+					path="/"
+					element={
+						<Home
+							title={title}
+							page={page}
+							setPage={setPage}
+							sortedPrice={sortedPrice}
+						/>
+					}
+				/>
 				<Route path="/offer/:id" element={<Offer />} />
 				<Route path="/signup" element={<SignUp setUser={setUser} />} />
 				<Route path="/login" element={<Login setUser={setUser} />} />

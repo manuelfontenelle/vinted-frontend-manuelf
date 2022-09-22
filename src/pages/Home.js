@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
+import ReactPaginate from "react-paginate"
 import axios from "axios"
 
 //Hero
@@ -10,26 +11,32 @@ import decoHero from "../assets/deco.svg"
 //loader
 import { Puff } from "react-loader-spinner"
 
-const Home = () => {
+const Home = ({ title, setPage, page, sortedPrice }) => {
 	const [data, setData] = useState()
 	const [isLoading, setIsLoading] = useState(true)
-	const [page, setPage] = useState(1)
 
+	const [pageCount, setPageCount] = useState(1)
 	const limit = 10
+
+	const handlePageClick = (event) => {
+		console.log(event.selected)
+		setPage(event.selected + 1)
+	}
 
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await axios.get(
-				`https://vinted-backend-manuelf.herokuapp.com/offers?limit=${limit}&page=${page}`
+				`https://vinted-backend-manuelf.herokuapp.com/offers?limit=${limit}&page=${page}&title=${title}&sort=${sortedPrice}`
 				// "https://vinted-backend-manuelf.herokuapp.com/offers"
-				// `http://localhost:3001/offers?limit=${limit}&page=${page}`
+				// `http://localhost:3001/offers?limit=${limit}&page=${page}&title=${title}&sort=${sortedPrice}`
 			)
 			console.log(response.data)
+			setPageCount(Math.ceil(Number(response.data.count) / limit))
 			setData(response.data)
 			setIsLoading(false)
 		}
 		fetchData()
-	}, [page])
+	}, [page, title, sortedPrice])
 
 	return isLoading ? (
 		<div>
@@ -82,10 +89,11 @@ const Home = () => {
 									</span>
 									<div className="card">
 										{/* <h2 style={{ marginBottom: 15 }}>{offer.product_name}</h2> */}
+										<h3 className="offers-name">{offer.product_name}</h3>
 										<h2 className="offers-price">{offer.product_price} € </h2>
 
 										{offer.product_details.map((item, index) => {
-											const keys = Object.keys(item) // ["MARQUE"]
+											// const keys = Object.keys(item) // ["MARQUE"]
 											return (
 												<div key={index}>
 													<span className="offers-marque">{item.MARQUE}</span>
@@ -101,8 +109,20 @@ const Home = () => {
 						)
 					})}
 				</div>
-				<div className="navPage">
-					{/* {console.log(data.offers.length * page)} */}
+
+				<div className="pagination-container">
+					<ReactPaginate
+						previousLabel={"<"}
+						nextLabel={">"}
+						pageCount={pageCount}
+						pageRangeDisplayed={2}
+						onPageChange={handlePageClick}
+						containerClassName={"pagination"}
+						activeClassName={"active"}
+					/>
+				</div>
+
+				{/* <div className="navPage">
 
 					{data.offers.length === 0 ||
 					data.offers.length * page === data.count ? (
@@ -121,7 +141,7 @@ const Home = () => {
 							<button onClick={() => setPage(page - 1)}>Page précédente</button>
 						</div>
 					)}
-				</div>
+				</div> */}
 			</div>
 		</>
 	)
