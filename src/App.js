@@ -21,6 +21,19 @@ function App() {
 	const [sortedPrice, setSortedPrice] = useState("")
 	console.log(sortedPrice)
 
+	const [range, setRange] = useState({ values: [0, 100] })
+	console.log(range)
+	// const [priceMin, setPriceMin] = useState(range.values[0])
+
+	// const [priceMin, setPriceMin] = useState("")
+	// setPriceMin(range.values[0])
+
+	// console.log(priceMin)
+	// const [priceMax, setPriceMax] = useState("")
+	// setPriceMax(range.values[1])
+
+	// console.log(priceMax)
+
 	const handleChangeSortPrice = (checkedValue) => {
 		if (checkedValue === true) {
 			setSortedPrice("price-asc")
@@ -52,6 +65,10 @@ function App() {
 				setSearch={setSearch}
 				setPage={setPage}
 				handleChangeSortPrice={handleChangeSortPrice}
+				range={range}
+				setRange={setRange}
+				// setPriceMin={setPriceMin}
+				// setPriceMax={setPriceMax}
 			/>
 			<Routes>
 				<Route
@@ -62,6 +79,9 @@ function App() {
 							page={page}
 							setPage={setPage}
 							sortedPrice={sortedPrice}
+							range={range}
+							// priceMin={priceMin}
+							// priceMax={priceMax}
 						/>
 					}
 				/>

@@ -15,8 +15,8 @@ const Login = ({ setUser }) => {
 		try {
 			event.preventDefault()
 			const response = await axios.post(
-				"https://vinted-backend-manuelf.herokuapp.com/user/login",
-				// "http://localhost:3001/user/login",
+				// "https://vinted-backend-manuelf.herokuapp.com/user/login",
+				"http://localhost:3001/user/login",
 				{
 					email: email,
 					password: password,

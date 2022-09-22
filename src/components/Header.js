@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 // import { useState } from "react"
+import { Range, getTrackBackground } from "react-range"
 
 const Header = ({
 	logo,
@@ -9,8 +10,11 @@ const Header = ({
 	setSearch,
 	setPage,
 	handleChangeSortPrice,
+	range,
+	setRange,
 }) => {
 	const navigate = useNavigate()
+
 	return (
 		<div className="header-container">
 			<div className="header container">
@@ -49,6 +53,56 @@ const Header = ({
 								<div className="check__indicator" />
 							</div>
 						</div>
+						<div className="range-container">
+							<Range
+								step={1}
+								min={0}
+								max={500}
+								values={range.values}
+								onChange={(values) => setRange({ values })}
+								renderTrack={({ props, children }) => (
+									<div
+										{...props}
+										style={{
+											...props.style,
+											height: "6px",
+											width: "100%",
+											background: getTrackBackground({
+												values: range.values,
+												colors: ["#ccc", "#018a91", "#ccc"],
+												min: 0,
+												max: 500,
+											}),
+											alignSelf: "center",
+										}}
+									>
+										{children}
+									</div>
+								)}
+								renderThumb={({ index, props, isDragged }) => (
+									<>
+										<div
+											className="container-number-range"
+											{...props}
+											style={{
+												...props.style,
+												borderRadius: "50px",
+												height: "22px",
+												width: "22px",
+												backgroundColor: "#09b1ba",
+											}}
+										>
+											<div className="number-range">
+												<output style={{ marginTop: "30px" }} id="output">
+													{range.values[index] + "€"}
+												</output>
+											</div>
+										</div>
+									</>
+								)}
+							/>
+						</div>
+						{/* /range-container */}
 					</div>
 				</div>
 				{token ? (

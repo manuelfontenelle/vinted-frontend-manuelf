@@ -11,7 +11,7 @@ import decoHero from "../assets/deco.svg"
 //loader
 import { Puff } from "react-loader-spinner"
 
-const Home = ({ title, setPage, page, sortedPrice }) => {
+const Home = ({ title, setPage, page, sortedPrice, range }) => {
 	const [data, setData] = useState()
 	const [isLoading, setIsLoading] = useState(true)
 
@@ -26,9 +26,9 @@ const Home = ({ title, setPage, page, sortedPrice }) => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await axios.get(
-				`https://vinted-backend-manuelf.herokuapp.com/offers?limit=${limit}&page=${page}&title=${title}&sort=${sortedPrice}`
+				// `https://vinted-backend-manuelf.herokuapp.com/offers?limit=${limit}&page=${page}&title=${title}&sort=${sortedPrice}`
 				// "https://vinted-backend-manuelf.herokuapp.com/offers"
-				// `http://localhost:3001/offers?limit=${limit}&page=${page}&title=${title}&sort=${sortedPrice}`
+				`http://localhost:3001/offers?limit=${limit}&page=${page}&title=${title}&sort=${sortedPrice}&priceMin=${range.values[0]}&priceMax=${range.values[1]}`
 			)
 			console.log(response.data)
 			setPageCount(Math.ceil(Number(response.data.count) / limit))
@@ -36,7 +36,7 @@ const Home = ({ title, setPage, page, sortedPrice }) => {
 			setIsLoading(false)
 		}
 		fetchData()
-	}, [page, title, sortedPrice])
+	}, [page, title, sortedPrice, range])
 
 	return isLoading ? (
 		<div>

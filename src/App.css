@@ -661,10 +661,15 @@ input {
 }
 .panel-edit-search-top {
 	width: 100%;
+	padding: 3px 0;
 }
 .panel-edit-search-bottom {
+	padding: 3px 0;
 	/* margin-top: 10px; */
 	margin-left: 15px;
+	width: 100%;
+	display: flex;
+	gap: 20px;
 }
 /* SEARCH */
 .search-container {
@@ -753,4 +758,27 @@ input {
 	top: 5px;
 	left: 5px;
 	transition: transform 0.25s ease;
+}
+
+/* RANGE  */
+.range-container {
+	display: flex;
+	flex: 1 1;
+	margin-right: 15px;
+	margin-left: 15px;
+	align-items: center;
+	border: none;
+}
+.container-number-range {
+}
+.container-number-range:focus {
+	outline: none;
+}
+.number-range {
+	font-family: Arial, Helvetica, sans-serif;
+	margin-top: -12px;
+	padding-right: 2px;
+	font-size: 10px;
+	/* font-weight: bold; */
+	text-align: center;
 }
