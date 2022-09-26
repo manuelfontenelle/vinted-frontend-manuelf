@@ -59,7 +59,10 @@ const Header = ({
 								min={0}
 								max={500}
 								values={range.values}
-								onChange={(values) => setRange({ values })}
+								onChange={(values) => {
+									setRange({ values })
+									setPage(1)
+								}}
 								renderTrack={({ props, children }) => (
 									<div
 										{...props}
