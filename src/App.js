@@ -23,6 +23,7 @@ function App() {
 
 	const [range, setRange] = useState({ values: [0, 350] })
 	console.log(range)
+
 	// const [priceMin, setPriceMin] = useState(range.values[0])
 
 	// const [priceMin, setPriceMin] = useState("")
@@ -67,6 +68,8 @@ function App() {
 				handleChangeSortPrice={handleChangeSortPrice}
 				range={range}
 				setRange={setRange}
+				// setPathName={setPathName}
+				// pathName={pathName}
 				// setPriceMin={setPriceMin}
 				// setPriceMax={setPriceMax}
 			/>

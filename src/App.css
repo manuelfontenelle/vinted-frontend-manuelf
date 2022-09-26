@@ -48,6 +48,9 @@ body {
 	color: #fff;
 	width: 150px;
 }
+.button-sold:hover {
+	background-color: #018a91;
+}
 .button-deco {
 	width: 150px;
 }
@@ -674,10 +677,12 @@ input {
 /* SEARCH */
 .search-container {
 	margin-left: 15px;
+	display: flex;
+	align-items: center;
 }
 .searchInput {
 	/* margin: 25px auto 35px auto; */
-	padding: 5px 20px;
+	padding: 5px 35px;
 	text-align: left;
 	display: flex;
 	border: none;
@@ -688,6 +693,12 @@ input {
 	color: black;
 	font-size: 15px;
 }
+.icone-search {
+	color: rgb(184, 184, 184);
+	position: absolute;
+	padding-left: 10px;
+}
+
 .search-container input::placeholder {
 	color: #c9c9c9;
 }
