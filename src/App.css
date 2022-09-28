@@ -106,7 +106,8 @@ button {
 }
 .offers-name {
 	font-size: 18px;
-	margin-bottom: 10px;
+	margin-bottom: 7px;
+	line-height: 1.2em;
 }
 
 .offers-marque,
