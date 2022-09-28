@@ -781,8 +781,7 @@ input {
 	align-items: center;
 	border: none;
 }
-.container-number-range {
-}
+
 .container-number-range:focus {
 	outline: none;
 }
