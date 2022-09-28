@@ -19,6 +19,7 @@ function App() {
 	const [page, setPage] = useState(1)
 	const [title, setSearch] = useState("")
 	const [sortedPrice, setSortedPrice] = useState("")
+	const [checkInputValue, setCheckedInput] = useState("")
 	console.log(sortedPrice)
 
 	const [range, setRange] = useState({ values: [0, 420] })
@@ -38,8 +39,13 @@ function App() {
 	const handleChangeSortPrice = (checkedValue) => {
 		if (checkedValue === true) {
 			setSortedPrice("price-asc")
+			setCheckedInput(true)
+			// return true
 		} else {
 			setSortedPrice("")
+			setCheckedInput(false)
+			// return false
+			// document.getElementsByclassName("check__check").removeAttribute("checked")
 		}
 	}
 
@@ -68,6 +74,8 @@ function App() {
 				handleChangeSortPrice={handleChangeSortPrice}
 				range={range}
 				setRange={setRange}
+				checkInputValue={checkInputValue}
+				// handlePageClick={handlePageClick}
 				// setPathName={setPathName}
 				// pathName={pathName}
 				// setPriceMin={setPriceMin}
@@ -83,6 +91,7 @@ function App() {
 							setPage={setPage}
 							sortedPrice={sortedPrice}
 							range={range}
+							// handlePageClick={handlePageClick}
 							// priceMin={priceMin}
 							// priceMax={priceMax}
 						/>

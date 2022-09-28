@@ -18,6 +18,8 @@ const Header = ({
 	handleChangeSortPrice,
 	range,
 	setRange,
+	checkInputValue,
+	// handlePageClick,
 }) => {
 	const navigate = useNavigate()
 	const location = useLocation()
@@ -35,7 +37,14 @@ const Header = ({
 	return (
 		<div className="header-container">
 			<div className="header container">
-				<Link to={`/`}>
+				<Link
+					to={`/`}
+					onClick={() => {
+						// setPage(1)
+						// setRange({ values: [0, 420] })
+						// handleChangeSortPrice(false)
+					}}
+				>
 					<img className="logo" src={logo} alt="" />
 				</Link>
 				{pathName === true && (
@@ -71,8 +80,8 @@ const Header = ({
 										}
 										type="checkbox"
 										className="check__check"
-										// checked={sortedPrice}
-										// value=""
+										checked={checkInputValue}
+										value={checkInputValue}
 										id="checkbox"
 									/>
 									<div className="check__indicator" />

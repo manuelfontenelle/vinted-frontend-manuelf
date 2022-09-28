@@ -119,6 +119,7 @@ const Home = ({ title, setPage, page, sortedPrice, range }) => {
 						onPageChange={handlePageClick}
 						containerClassName={"pagination"}
 						activeClassName={"active"}
+						forcePage={page - 1} // retour à la page précédente si click sur précédent
 					/>
 				</div>
 
