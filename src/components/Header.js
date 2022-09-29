@@ -39,11 +39,11 @@ const Header = ({
 			<div className="header container">
 				<Link
 					to={`/`}
-					onClick={() => {
-						// setPage(1)
-						// setRange({ values: [0, 420] })
-						// handleChangeSortPrice(false)
-					}}
+					// onClick={() => {
+					// setPage(1)
+					// setRange({ values: [0, 420] })
+					// handleChangeSortPrice(false)
+					// }}
 				>
 					<img className="logo" src={logo} alt="" />
 				</Link>
