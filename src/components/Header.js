@@ -27,6 +27,7 @@ const Header = ({
 	console.log(pathName)
 
 	useEffect(() => {
+		// on detecte si on est sur la homePage, si oui, on affiche la barre de recherche + range select
 		if (location.pathname === "/") {
 			setPathName(true)
 		} else {
