@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
 const SignUp = ({ setUser }) => {
-	const [avatar, setavatar] = useState()
+	const [avatar, setavatar] = useState("")
 	const [username, setUsername] = useState("")
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
@@ -21,6 +21,7 @@ const SignUp = ({ setUser }) => {
 			event.preventDefault()
 
 			if (email && username && password) {
+				// console.log("testtttt")
 				const formData = new FormData()
 				formData.append("avatar", avatar)
 				formData.append("username", username)
