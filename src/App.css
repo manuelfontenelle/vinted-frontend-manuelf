@@ -26,7 +26,7 @@ body {
 	padding: 20px 20px;
 	flex-direction: column;
 }
-@media (min-width: 700px) {
+@media (min-width: 850px) {
 	.header {
 		flex-direction: row;
 		height: 100px;
@@ -44,7 +44,7 @@ body {
 	outline: none;
 	margin: 5px 0;
 }
-@media (min-width: 700px) {
+@media (min-width: 850px) {
 	.header-button {
 		margin: 0 0 0 20px;
 	}
@@ -98,7 +98,7 @@ button {
 	/* text-decoration: none; */
 }
 
-@media (min-width: 700px) {
+@media (min-width: 850px) {
 	.offers {
 		justify-content: space-between;
 	}
@@ -167,7 +167,7 @@ button {
 	justify-content: space-between;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 850px) {
 	.offer-container {
 		flex-direction: row;
 	}
@@ -317,7 +317,7 @@ button {
 	font-size: 28px;
 	line-height: 1.2em;
 }
-@media (min-width: 700px) {
+@media (min-width: 850px) {
 	.block-left {
 		width: 360px;
 	}
@@ -720,6 +720,7 @@ input {
 	justify-content: center;
 	align-items: flex-start;
 	gap: 10px;
+	width: 100%;
 }
 .panel-edit-search-top {
 	width: 100%;
@@ -735,19 +736,18 @@ input {
 
 	gap: 20px;
 }
-@media (min-width: 700px) {
-	.panel-edit-search-bottom {
-		margin-left: 15px;
-		flex-direction: row;
-	}
-}
+
 /* SEARCH */
 .search-container {
 	display: flex;
 	align-items: center;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 850px) {
+	.panel-edit-search-bottom {
+		margin-left: 15px;
+		flex-direction: row;
+	}
 	.search-container {
 		margin-left: 15px;
 	}
@@ -785,7 +785,7 @@ input {
 	align-items: center;
 	margin: 0 auto 10px auto;
 }
-@media (min-width: 700px) {
+@media (min-width: 850px) {
 	.checkbox-container-sort {
 		margin-bottom: 0;
 	}
@@ -859,7 +859,7 @@ input {
 	border: none;
 	margin-bottom: 15px;
 }
-@media (min-width: 700px) {
+@media (min-width: 850px) {
 	.range-container {
 		margin-bottom: 0;
 	}
