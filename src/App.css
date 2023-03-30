@@ -149,17 +149,37 @@ button {
 	margin-top: 35px;
 	display: flex;
 	justify-content: space-evenly;
+	flex-direction: column;
 }
 
+.offer-img img {
+	object-fit: cover;
+	width: 100%;
+	height: 600px;
+}
 .offer-content {
 	padding: 35px;
-	width: 400px;
+	width: 100%;
 	background-color: white;
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
+
+@media (min-width: 700px) {
+	.offer-container {
+		flex-direction: row;
+	}
+	.offer-img img {
+		width: auto;
+		height: auto;
+	}
+	.offer-content {
+		width: 400px;
+	}
+}
+
 .offer-content-first {
 	border-bottom: 1px solid #dedede;
 	padding-bottom: 55px;

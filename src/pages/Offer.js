@@ -41,11 +41,7 @@ const Offer = () => {
 		<div className="container">
 			<div className="offer-container">
 				<div className="offer-img">
-					<img
-						style={{ height: 600 }}
-						src={data.product_image.secure_url}
-						alt=""
-					/>
+					<img style={{}} src={data.product_image.secure_url} alt="" />
 				</div>
 				<div className="offer-content">
 					<div className="offer-content-first">
