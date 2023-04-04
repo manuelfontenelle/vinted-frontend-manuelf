@@ -107,6 +107,7 @@ button {
 .offers a {
 	text-decoration: none;
 	color: black;
+	width: 100%;
 }
 
 .offers-img-container img {
@@ -117,9 +118,18 @@ button {
 }
 
 .card-container {
-	/* border: 1px solid red; */
-	width: 220px;
+	width: 100%;
 }
+
+@media (min-width: 550px) {
+	.card-container {
+		width: 220px;
+	}
+	.offers a {
+		width: auto;
+	}
+}
+
 .offers-owner {
 	padding-left: 10px;
 }
